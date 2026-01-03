@@ -1,6 +1,6 @@
 # Case Study: Industrial Automation — Distributed Klipper Architecture & High-Voltage Systems
 
-**Author:** [Your Name]
+**Author:** Allister Barnes
 **Tools Used:** Klipper Firmware, Mainsail OS, Python (Macros), Crowsnest
 **Hardware:** Ender 3 Pro (Heavily Modified), **External Raspberry Pi (Klipper Host)**
 **Status:** Optimization Phase Complete // High-Voltage Assembly Pending
