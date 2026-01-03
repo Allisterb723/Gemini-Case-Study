@@ -3,9 +3,11 @@ Hardware Architecture & Signal Logic — Unlocking Ultrawide 120Hz Monitor Split
 
 Author: Allister Barnes, Tools Used: Google Gemini 1.5 Pro, Custom Resolution Utility (CRU), Windows 11 Hardware: Acer Ultrawide Monitor (Novatek Chipset), Active Signal Splitter
 
+
 The Challenge
 I needed to route a specific Ultrawide resolution signal at a high refresh rate (120Hz) to a secondary monitor. Due to port constraints, this required an external splitter.
 The introduction of the splitter caused a handshake failure. The system defaulted to a standard 16:9 aspect ratio at 60Hz, completely locking out the native Ultrawide resolution and the 120Hz capability.
+
 
 Phase 1: AI-Assisted Component Selection
 Before troubleshooting, I utilized Gemini 1.5 Pro to architect the physical setup.
@@ -13,6 +15,7 @@ Before troubleshooting, I utilized Gemini 1.5 Pro to architect the physical setu
 The Constraint: Standard splitters often lack the bandwidth for Ultrawide resolutions at high refresh rates (pixel clock limitations).
 
 The Solution: I used the LLM to parse technical specifications of hardware candidates, filtering for an active bi-directional splitter with confirmed EDID passthrough and sufficient bandwidth to support the specific Ultrawide pixel count.
+
 
 Phase 2: The "Novatek" Logic Breakthrough
 Once the verified splitter was installed, the correct resolution and refresh rate were still missing from Windows settings.
@@ -22,6 +25,7 @@ Analysis: I provided the LLM with the diagnostic output from CRU (Custom Resolut
 The Finding: Gemini identified a discrepancy: The OS was loading a generic "Acer" driver profile that was being filtered by the splitter. However, the raw hardware identifier revealed a "Novatek" controller chip capable of much tighter timing parameters.
 
 The Fix: We bypassed the standard driver logic. We manually configured a Detailed Timing Block in CRU, explicitly defining the Ultrawide resolution (e.g., 2560x1080 / 3440x1440) combined with the 120Hz vertical total, using the specific "LCD standard" timings required by the Novatek chip.
+
 
 Outcome
 By manually forcing the signal parameters to match the raw hardware capabilities—ignoring the software bottlenecks—we successfully restored the full Ultrawide resolution at 120Hz. This validated the hardware architecture and proved that the "incompatible" setup was actually a software configuration error solvable with AI reasoning.
