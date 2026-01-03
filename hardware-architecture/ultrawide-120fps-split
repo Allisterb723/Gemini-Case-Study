@@ -24,7 +24,7 @@ Once the verified splitter was installed, the correct resolution and refresh rat
 3.  **The Fix:** We bypassed the standard driver logic. We manually configured a **Detailed Timing Block** in CRU, explicitly defining the **Ultrawide resolution** (e.g., 2560x1080 / 3440x1440) combined with the **120Hz vertical total**, using the specific "LCD standard" timings required by the Novatek chip.
 
 
-<img width="642" height="668" alt="Image" src="https://github.com/user-attachments/assets/1d179a9f-f724-41ee-8f50-001efa84dc88" />
+![Monitor Fix Screenshot](https://github.com/user-attachments/assets/1d179a9f-f724-41ee-8f50-001efa84dc88)
 
 
 ### Outcome
